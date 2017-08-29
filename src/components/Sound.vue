@@ -7,7 +7,9 @@
   let sound = null;
   window.addEventListener('touchstart', function () {
     if (!sound) {
-      sound = createSound();
+      sound = new SoundService();
+      sound.play();
+      sound.stop();
     }
   });
 
