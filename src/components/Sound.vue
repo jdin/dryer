@@ -31,5 +31,7 @@
   }
 </script>
 <style>
-
+  button {
+    font-size: 20px;
+  }
 </style>
