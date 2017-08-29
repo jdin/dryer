@@ -4,12 +4,18 @@
 <script>
   import SoundService from './SoundService.js'
 
+  let sound = null;
+  window.addEventListener('touchstart', function () {
+    if (!sound) {
+      sound = createSound();
+    }
+  });
+
   export default {
     name : 'sound',
     data() {
       return {
-        isStarted : false,
-        sound: null
+        isStarted : false
       }
     },
     methods : {
@@ -17,14 +23,14 @@
         return this.isStarted ? "Stop" : "Start";
       },
       playPause : function() {
-        if (!this.sound) {
-          this.sound = new SoundService();
+        if (!sound) {
+          sound = new SoundService();
         }
         this.isStarted = !this.isStarted;
         if (this.isStarted) {
-          this.sound.play();
+          sound.play();
         } else {
-          this.sound.stop();
+          sound.stop();
         }
       }
     }
