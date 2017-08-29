@@ -38,6 +38,6 @@
 </script>
 <style>
   button {
-    font-size: 20px;
+    font-size: 25px;
   }
 </style>
