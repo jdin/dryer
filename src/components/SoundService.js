@@ -20,7 +20,6 @@ export default class SoundService {
   }
 
   play() {
-    console.log("play");
     this.source = this.context.createBufferSource();
     this.context.decodeAudioData(decodeSound(), (buffer) => {
       this.source.buffer = buffer;
