@@ -1,15 +1,13 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-  </div>
+    <div>{{ msg }}</div>
 </template>
 
 <script>
   export default {
-    name : 'hello',
+    name : 'build',
     data() {
       return {
-        msg : 'Click here:'
+        msg : 'build : ' + process.env.build
       }
     }
   }
@@ -17,7 +15,8 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  h1, h2 {
+  div {
     font-weight: normal;
+    font-size: small;
   }
 </style>

@@ -3,8 +3,10 @@
 </template>
 <script>
   import SoundService from './SoundService.js'
+  import NoSleep from 'nosleep.js';
 
   let sound = new SoundService();
+  let nosleep = new NoSleep();
 
   export default {
     name : 'sound',
@@ -20,8 +22,10 @@
       playPause : function() {
         this.isStarted = !this.isStarted;
         if (this.isStarted) {
+          nosleep.enable();
           sound.play();
         } else {
+          nosleep.disable();
           sound.stop();
         }
       }
