@@ -72,7 +72,7 @@
     margin: auto;
   }
 
-  main button {
+  main a {
     margin: auto;
   }
 
