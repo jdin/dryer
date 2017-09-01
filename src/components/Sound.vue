@@ -72,8 +72,8 @@
   .the-container{
     display: block;
     position: absolute;
-    width: 500px;
-    height: 350px;
+    width: 235px;
+    height: 235px;
     margin: auto;
     top: 0;
     bottom: 0;
