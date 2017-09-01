@@ -8,7 +8,8 @@
       <sound></sound>
     </main>
     <footer>
-      <build></build>
+      <span class="left">Base on <a href="https://codepen.io/AngelaVelasquez/pen/cihEG">codepen</a></span>
+      <build class="right"></build>
     </footer>
   </div>
 </template>
@@ -32,6 +33,7 @@
     width: 100%;
     padding: 0;
     margin: 0;
+    background: #fff;
   }
 
   #app {
@@ -76,9 +78,20 @@
     margin: auto;
   }
 
-  footer {
-    height: 15px;
+  footer > .left {
+    text-align: left;
+  }
+
+  footer > .right {
     text-align: right;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    height: 15px;
     padding: 10px;
+    font-weight: lighter;
+    font-size: small;
   }
 </style>

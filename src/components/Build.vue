@@ -15,8 +15,4 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  div {
-    font-weight: normal;
-    font-size: small;
-  }
 </style>
