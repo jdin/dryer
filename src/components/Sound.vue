@@ -1,10 +1,7 @@
 <template>
-
-  <!--<a v-on:click="playPause()" class="btn-round"><span>{{getButtonName()}}</span></a>-->
-
   <div class="the-container">
 
-    <input type="checkbox" id="toggle" v-on:click="playPause()" />
+    <input type="checkbox" id="toggle" v-model="isStarted" v-on:change="playPause" />
     <label for="toggle"></label>
 
     <div class="day-night-cont">
@@ -33,9 +30,7 @@
       </div>
 
     </div>
-
   </div>
-
 </template>
 <script>
   import SoundService from './SoundService.js'
@@ -52,11 +47,7 @@
       }
     },
     methods : {
-      getButtonName : function() {
-        return this.isStarted ? "-" : "+";
-      },
       playPause : function() {
-        this.isStarted = !this.isStarted;
         if (this.isStarted) {
           nosleep.enable();
           sound.play();
@@ -291,7 +282,7 @@
     width: 20px;
     border-radius: 100%;
     background: #DDD;
-    box-shadow: 0px 0px 50px #CCC;
+    box-shadow: 0px 0px 50px #fff;
   }
 
   .day-night-cont .the-moon .moon-inside{

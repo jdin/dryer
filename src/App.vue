@@ -8,7 +8,7 @@
       <sound></sound>
     </main>
     <footer>
-      <span class="left">Base on <a href="https://codepen.io/AngelaVelasquez/pen/cihEG">codepen</a></span>
+      <span class="left">Based on <a href="https://codepen.io/AngelaVelasquez/pen/cihEG">codepen</a></span>
       <build class="right"></build>
     </footer>
   </div>
