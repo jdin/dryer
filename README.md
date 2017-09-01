@@ -1,6 +1,10 @@
-# pwa-example
+# Hair Dryer Sound
 
-> A Vue.js project
+> A Vue.js PWA project
+
+A progressive web application that is able to work offline and provide a white noise that can help your baby to fall asleep.
+
+You can get it [here](http://jdin.github.io/dryer)  
 
 ## Build Setup
 

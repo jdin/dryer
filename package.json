@@ -1,8 +1,8 @@
 {
-  "name": "pwa-example",
+  "name": "hair-dryer-sound",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "skondratenko <skondratenko@asset-control.com>",
+  "description": "A Vue.js PWA application",
+  "author": "jdin <jdinosaurus@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
