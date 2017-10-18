@@ -5,28 +5,31 @@ export default class SoundService {
 
     // ios workaround
     window.addEventListener('touchstart', () => {
-      // TODO can be improved
-      const buffer = this.context.createBuffer(1, 1, 22050);
-      const source = this.context.createBufferSource();
-      source.buffer = buffer;
+      this.getSource().then(source => {
+        source.start();
+        source.stop();
+      });
+    });
+  }
 
-      // connect to output (your speakers)
-      source.connect(this.context.destination);
-
-      // play the file
-      source.start();
-      source.stop();
+  getSource() {
+    return new Promise((resolve, reject) => {
+      if (this.source) {
+        resolve(this.source);
+      } else {
+        this.source = this.context.createBufferSource();
+        this.context.decodeAudioData(decodeSound(), (buffer) => {
+          this.source.buffer = buffer;
+          this.source.connect(this.context.destination);
+          this.source.loop = true;
+          resolve(this.source);
+        });
+      }
     });
   }
 
   play() {
-    this.source = this.context.createBufferSource();
-    this.context.decodeAudioData(decodeSound(), (buffer) => {
-      this.source.buffer = buffer;
-      this.source.connect(this.context.destination);
-      this.source.loop = true;
-      this.source.start(0);
-    });
+    this.getSource().then((source) => source.start(0));
   }
 
   stop() {
