@@ -2,39 +2,41 @@ export default class SoundService {
   constructor() {
     let AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
     this.context = new AudioContext();
+    this.started = false;
 
     // ios workaround
     window.addEventListener('touchstart', () => {
-      this.getSource().then(source => {
-        source.start();
-        source.stop();
-      });
+      if (this.started) return;
+      this.play();
     });
   }
 
   getSource() {
     return new Promise((resolve, reject) => {
-      if (this.source) {
+      this.source = this.context.createBufferSource();
+      this.context.decodeAudioData(decodeSound(), (buffer) => {
+        this.source.buffer = buffer;
+        this.source.connect(this.context.destination);
+        this.source.loop = true;
         resolve(this.source);
-      } else {
-        this.source = this.context.createBufferSource();
-        this.context.decodeAudioData(decodeSound(), (buffer) => {
-          this.source.buffer = buffer;
-          this.source.connect(this.context.destination);
-          this.source.loop = true;
-          resolve(this.source);
-        });
-      }
+      });
     });
   }
 
   play() {
-    this.getSource().then((source) => source.start(0));
+    if (this.started) return;
+    this.getSource().then((source) => {
+      if (!this.started) {
+        source.start();
+        this.started = true;
+      }
+    });
   }
 
   stop() {
     if (this.source) {
       this.source.stop();
+      this.started = false;
     }
   }
 }
